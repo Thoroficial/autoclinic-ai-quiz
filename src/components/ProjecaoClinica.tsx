@@ -246,13 +246,13 @@ export default function ProjecaoClinica({ onContinue }: ProjecaoClinicaProps) {
           <Quote className="w-5 h-5 text-purple-400 mb-2" />
           <div className="space-y-1">
             <p className="text-xs text-gray-700 leading-relaxed">
-              "Antes eu chegava em casa e ainda ficava respondendo paciente no WhatsApp.
+              &ldquo;Antes eu chegava em casa e ainda ficava respondendo paciente no WhatsApp.
             </p>
             <p className="text-xs text-gray-700 leading-relaxed">
               Hoje o <strong className="text-purple-700">AutoClinic.ai</strong> responde meus pacientes, organiza minha agenda e acompanha tudo.
             </p>
             <p className="text-xs text-gray-700 leading-relaxed">
-              Minha clínica ficou muito mais <strong>organizada</strong> e meu faturamento começou a crescer."
+              Minha clínica ficou muito mais <strong>organizada</strong> e meu faturamento começou a crescer.&rdquo;
             </p>
           </div>
           <p className="text-xs font-bold text-gray-600 mt-3">

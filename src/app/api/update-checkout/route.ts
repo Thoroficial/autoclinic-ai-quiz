@@ -54,10 +54,11 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ success: true, data })
 
-  } catch (error: any) {
-    console.error('Erro ao atualizar checkout:', error)
+  } catch (error: unknown) {
+    const err = error as Error
+    console.error('Erro ao atualizar checkout:', err)
     return NextResponse.json(
-      { error: error.message },
+      { error: err.message },
       { status: 500 }
     )
   }

@@ -168,7 +168,7 @@ export default function DiagnosticoComparacao({ onContinue }: DiagnosticoCompara
             {/* Card de conclusão - Nova frase analítica */}
             <div className="bg-purple-50/60 rounded-lg md:rounded-xl p-4 sm:p-5 md:p-6 border border-purple-200/60">
               <p className="text-sm sm:text-base md:text-lg text-gray-800 text-center leading-relaxed font-medium">
-                "Quando a estrutura assume o controle, o crescimento deixa de depender exclusivamente de você."
+                &ldquo;Quando a estrutura assume o controle, o crescimento deixa de depender exclusivamente de você.&rdquo;
               </p>
             </div>
 
