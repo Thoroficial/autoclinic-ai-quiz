@@ -126,13 +126,13 @@ export default function TelaEscolhaPlanos({ onEscolherMensal, onEscolherAnual, o
 
             {/* Preço principal */}
             <div className="flex items-baseline gap-1.5 mb-1">
-              <span className="text-5xl font-black text-gray-900">R$ 97</span>
+              <span className="text-5xl font-black text-gray-900">R$ 197</span>
               <span className="text-base text-gray-500 font-medium">/ mês</span>
             </div>
 
             {/* Cobrança anual */}
             <p className="text-xs text-gray-400 mt-1">
-              Cobrança anual: <span className="font-semibold text-gray-600">R$ 1.164</span>
+              Cobrança anual: <span className="font-semibold text-gray-600">R$ 2.364</span>
             </p>
 
             {/* Economia */}
@@ -168,7 +168,7 @@ export default function TelaEscolhaPlanos({ onEscolherMensal, onEscolherAnual, o
             </p>
 
             <div className="flex items-baseline gap-1.5">
-              <span className="text-4xl font-black text-gray-900">R$ 197</span>
+              <span className="text-4xl font-black text-gray-900">R$ 297</span>
               <span className="text-base text-gray-500 font-medium">/ mês</span>
             </div>
           </div>

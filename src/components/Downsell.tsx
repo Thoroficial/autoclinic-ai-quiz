@@ -101,7 +101,7 @@ export default function Downsell({ onAceitar, onRecusar }: DownsellProps) {
           <div className="pt-2">
             {/* Ancoragem: preço riscado */}
             <p className="text-sm text-gray-400 mb-1">
-              <span className="line-through">De R$ 1.164/ano</span>
+              <span className="line-through">De R$ 2.364/ano</span>
             </p>
 
             {/* Por */}
@@ -109,12 +109,12 @@ export default function Downsell({ onAceitar, onRecusar }: DownsellProps) {
 
             {/* Preço principal */}
             <div className="flex items-baseline justify-center gap-1.5 mb-2">
-              <span className="text-6xl font-black text-gray-900">R$ 67</span>
+              <span className="text-6xl font-black text-gray-900">R$ 147</span>
               <span className="text-lg text-gray-500 font-medium">/ mês</span>
             </div>
 
-            <p className="text-xs text-gray-400">
-              Plano anual promocional
+            <p className="text-xs text-gray-500">
+              Plano anual promocional: <span className="font-semibold text-gray-700">R$ 1.764/ano</span>
             </p>
           </div>
         </div>

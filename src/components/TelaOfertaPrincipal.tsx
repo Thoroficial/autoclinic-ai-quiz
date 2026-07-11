@@ -128,13 +128,13 @@ export default function TelaOfertaPrincipal({ onAtivar, onVerPlanos, onFechar }:
           <div className="pt-1">
             {/* Preço principal — hierarquia #1 */}
             <div className="flex items-baseline justify-center gap-1 mb-0.5">
-              <span className="text-6xl font-black text-gray-900">R$ 97</span>
+              <span className="text-6xl font-black text-gray-900">R$ 197</span>
               <span className="text-base text-gray-500 font-medium">/ mês</span>
             </div>
 
             {/* Cobrança anual */}
             <p className="text-xs text-gray-500">
-              ou <span className="font-semibold text-gray-700">R$ 1.164</span> cobrados anualmente
+              ou <span className="font-semibold text-gray-700">R$ 2.364</span> cobrados anualmente
             </p>
 
             {/* Badge economia — hierarquia #2 */}

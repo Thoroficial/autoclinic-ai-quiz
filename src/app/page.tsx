@@ -1610,7 +1610,7 @@ function QuizContent() {
   if (showResult && perfilPrincipal && showDownsellFromOffer) {
     return (
       <Downsell
-        onAceitar={() => { window.location.href = 'https://pay.kiwify.com.br/yFD4B7a' }}
+        onAceitar={() => { window.location.href = 'https://app.autoclinicai.com.br/checkout?reseller=clecio&plan=starter&interval=annual&promo=true' }}
         onRecusar={() => handleCheckoutClick()}
       />
     )

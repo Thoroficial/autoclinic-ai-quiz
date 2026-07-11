@@ -78,9 +78,9 @@ export default function CheckoutFinal({ plano = 'anual', onCheckout }: CheckoutF
   }, [showConfirmacao, showDownsell])
 
   const CHECKOUT_URLS = {
-    anual: 'https://pay.kiwify.com.br/OmM4CRO',
-    mensal: 'https://pay.kiwify.com.br/1Sn2jG7',
-    downsell: 'https://pay.kiwify.com.br/yFD4B7a',
+    anual: 'https://app.autoclinicai.com.br/checkout?reseller=clecio&plan=starter&interval=annual',
+    mensal: 'https://app.autoclinicai.com.br/checkout?reseller=clecio&plan=starter',
+    downsell: 'https://app.autoclinicai.com.br/checkout?reseller=clecio&plan=starter&interval=annual&promo=true',
   }
 
   // Renderização condicional após todos os hooks
@@ -161,14 +161,14 @@ export default function CheckoutFinal({ plano = 'anual', onCheckout }: CheckoutF
           <div className="pt-2">
             {/* Preço principal */}
             <div className="flex items-baseline justify-center gap-1.5 mb-2">
-              <span className="text-6xl font-black text-gray-900">{isAnual ? 'R$ 97' : 'R$ 197'}</span>
+              <span className="text-6xl font-black text-gray-900">{isAnual ? 'R$ 197' : 'R$ 297'}</span>
               <span className="text-lg text-gray-500 font-medium">/ mês</span>
             </div>
 
             {/* Cobrança */}
             <p className="text-sm text-gray-500">
               {isAnual
-                ? <><span className="font-semibold text-gray-700">Cobrança anual: R$ 1.164</span></>
+                ? <><span className="font-semibold text-gray-700">Cobrança anual: R$ 2.364</span></>
                 : 'Cobrança mensal'
               }
             </p>
