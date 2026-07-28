@@ -16,6 +16,7 @@ import TelaEscolhaPlanos from '@/components/TelaEscolhaPlanos'
 import TelaOfertaPrincipal from '@/components/TelaOfertaPrincipal'
 import Downsell from '@/components/Downsell'
 import ConfirmacaoPagamento from '@/components/ConfirmacaoPagamento'
+import TelaBonusExclusivos from '@/components/TelaBonusExclusivos'
 
 // Cliente Supabase - configurado para usar o projeto VISUALIZA.AI AVI
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || ''
@@ -238,6 +239,8 @@ function QuizContent() {
   const [showOfertaPrincipal, setShowOfertaPrincipal] = useState(false)
   const [showDownsellFromOffer, setShowDownsellFromOffer] = useState(false)
   const [showConfirmacaoFromOffer, setShowConfirmacaoFromOffer] = useState(false)
+  const [showBonusExclusivos, setShowBonusExclusivos] = useState(false)
+  const [bonusFromDownsell, setBonusFromDownsell] = useState(false)
   const [planoSelecionado, setPlanoSelecionado] = useState<'mensal' | 'anual'>('anual')
   const [showDiagnosticoComparacao, setShowDiagnosticoComparacao] = useState(false)
   const [showProjecaoResultados, setShowProjecaoResultados] = useState(false)
@@ -1610,8 +1613,23 @@ function QuizContent() {
   if (showResult && perfilPrincipal && showDownsellFromOffer) {
     return (
       <Downsell
-        onAceitar={() => { window.location.href = 'https://app.autoclinicai.com.br/checkout?reseller=clecio&plan=starter&interval=annual&promo=true' }}
+        onAceitar={() => { setShowBonusExclusivos(true); setBonusFromDownsell(true) }}
         onRecusar={() => handleCheckoutClick()}
+      />
+    )
+  }
+
+  if (showResult && perfilPrincipal && showBonusExclusivos) {
+    return (
+      <TelaBonusExclusivos
+        onGarantir={() => {
+          if (bonusFromDownsell) {
+            window.location.href = 'https://app.autoclinicai.com.br/checkout?reseller=clecio&plan=starter&interval=annual&promo=true'
+          } else {
+            setShowCheckoutFinal(true)
+          }
+        }}
+        onFechar={() => { setBonusFromDownsell(false); setShowDownsellFromOffer(true) }}
       />
     )
   }
@@ -1623,8 +1641,8 @@ function QuizContent() {
   if (showResult && perfilPrincipal && showEscolhaPlanos) {
     return (
       <TelaEscolhaPlanos
-        onEscolherMensal={() => { setPlanoSelecionado('mensal'); setShowCheckoutFinal(true) }}
-        onEscolherAnual={() => { setPlanoSelecionado('anual'); setShowCheckoutFinal(true) }}
+        onEscolherMensal={() => { setPlanoSelecionado('mensal'); setBonusFromDownsell(false); setShowBonusExclusivos(true) }}
+        onEscolherAnual={() => { setPlanoSelecionado('anual'); setBonusFromDownsell(false); setShowBonusExclusivos(true) }}
         onFechar={() => setShowDownsellFromOffer(true)}
       />
     )
@@ -1633,7 +1651,7 @@ function QuizContent() {
   if (showResult && perfilPrincipal && showOfertaPrincipal) {
     return (
       <TelaOfertaPrincipal
-        onAtivar={() => { setPlanoSelecionado('anual'); setShowCheckoutFinal(true) }}
+        onAtivar={() => { setPlanoSelecionado('anual'); setBonusFromDownsell(false); setShowBonusExclusivos(true) }}
         onVerPlanos={() => setShowEscolhaPlanos(true)}
         onFechar={() => setShowDownsellFromOffer(true)}
       />
