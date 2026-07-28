@@ -12,8 +12,7 @@ import DiagnosticoComparacao from '@/components/DiagnosticoComparacao'
 import ProjecaoResultados from '@/components/ProjecaoResultados'
 import ProjecaoClinica from '@/components/ProjecaoClinica'
 import CheckoutFinal from '@/components/CheckoutFinal'
-import TelaEscolhaPlanos from '@/components/TelaEscolhaPlanos'
-import TelaOfertaPrincipal from '@/components/TelaOfertaPrincipal'
+import TelaComparacaoPlanos from '@/components/TelaComparacaoPlanos'
 import Downsell from '@/components/Downsell'
 import ConfirmacaoPagamento from '@/components/ConfirmacaoPagamento'
 import TelaBonusExclusivos from '@/components/TelaBonusExclusivos'
@@ -235,8 +234,7 @@ function QuizContent() {
   const [showFeedbackP6, setShowFeedbackP6] = useState(false)
   const [showProjecaoClinica, setShowProjecaoClinica] = useState(false)
   const [showCheckoutFinal, setShowCheckoutFinal] = useState(false)
-  const [showEscolhaPlanos, setShowEscolhaPlanos] = useState(false)
-  const [showOfertaPrincipal, setShowOfertaPrincipal] = useState(false)
+  const [showComparacaoPlanos, setShowComparacaoPlanos] = useState(false)
   const [showDownsellFromOffer, setShowDownsellFromOffer] = useState(false)
   const [showConfirmacaoFromOffer, setShowConfirmacaoFromOffer] = useState(false)
   const [showBonusExclusivos, setShowBonusExclusivos] = useState(false)
@@ -317,7 +315,8 @@ function QuizContent() {
         console.error('Erro ao atualizar lead:', err)
       }
     }
-    setShowOfertaPrincipal(true)
+    setShowDownsellFromOffer(false)
+    setShowComparacaoPlanos(true)
   }
 
   const calculatePartialProfile = (allAnswers: Record<number, number>) => {
@@ -1613,7 +1612,7 @@ function QuizContent() {
   if (showResult && perfilPrincipal && showDownsellFromOffer) {
     return (
       <Downsell
-        onAceitar={() => { setShowBonusExclusivos(true); setBonusFromDownsell(true) }}
+        onAceitar={() => { setShowDownsellFromOffer(false); setShowBonusExclusivos(true); setBonusFromDownsell(true) }}
         onRecusar={() => handleCheckoutClick()}
       />
     )
@@ -1623,13 +1622,14 @@ function QuizContent() {
     return (
       <TelaBonusExclusivos
         onGarantir={() => {
+          setShowBonusExclusivos(false)
           if (bonusFromDownsell) {
             window.location.href = 'https://app.autoclinicai.com.br/checkout?reseller=clecio&plan=starter&interval=annual&promo=true'
           } else {
             setShowCheckoutFinal(true)
           }
         }}
-        onFechar={() => { setBonusFromDownsell(false); setShowDownsellFromOffer(true) }}
+        onFechar={() => { setShowBonusExclusivos(false); setBonusFromDownsell(false); setShowDownsellFromOffer(true) }}
       />
     )
   }
@@ -1638,21 +1638,11 @@ function QuizContent() {
     return <CheckoutFinal plano={planoSelecionado} onCheckout={handleCheckoutClick} />
   }
 
-  if (showResult && perfilPrincipal && showEscolhaPlanos) {
+  if (showResult && perfilPrincipal && showComparacaoPlanos) {
     return (
-      <TelaEscolhaPlanos
+      <TelaComparacaoPlanos
         onEscolherMensal={() => { setPlanoSelecionado('mensal'); setBonusFromDownsell(false); setShowBonusExclusivos(true) }}
         onEscolherAnual={() => { setPlanoSelecionado('anual'); setBonusFromDownsell(false); setShowBonusExclusivos(true) }}
-        onFechar={() => setShowDownsellFromOffer(true)}
-      />
-    )
-  }
-
-  if (showResult && perfilPrincipal && showOfertaPrincipal) {
-    return (
-      <TelaOfertaPrincipal
-        onAtivar={() => { setPlanoSelecionado('anual'); setBonusFromDownsell(false); setShowBonusExclusivos(true) }}
-        onVerPlanos={() => setShowEscolhaPlanos(true)}
         onFechar={() => setShowDownsellFromOffer(true)}
       />
     )
