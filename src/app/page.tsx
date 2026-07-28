@@ -1590,12 +1590,12 @@ function QuizContent() {
                 onClick={() => setShowQuiz(true)}
                 className="w-full h-14 text-base sm:text-lg font-semibold bg-gradient-to-r from-purple-700 via-purple-600 to-purple-400 hover:from-purple-800 hover:via-purple-700 hover:to-purple-500 text-white rounded-2xl shadow-[0_8px_20px_rgba(126,34,206,0.35)] hover:shadow-[0_12px_28px_rgba(126,34,206,0.45)] transition-all duration-300"
               >
-                Quero Ativar Meu Sistema Inteligente
+                Quero Ativar Minha Clínica Inteligente
               </Button>
 
               {/* Prova social */}
               <p className="text-xs sm:text-sm text-gray-600 text-center leading-relaxed font-medium">
-                Mais de 347 clínicas já utilizam a <span className="text-purple-700 font-semibold">autoclinic.ia</span> para lucrar mais.
+                Mais de 347 clínicas já ativaram o <span className="text-purple-700 font-semibold">autoclinic.ai</span> para lucrar mais.
               </p>
             </div>
 
